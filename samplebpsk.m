@@ -1,0 +1,1 @@
+clc; clear all; close all;   Tb=input('Enter the Bit duration: ');   t=0:0.001:4; x=square(2*pi*(1/(2*Tb))*t);   c=sin(2*pi*10*t);   p=x.*c;   subplot(3,1,1); plot(t,x);title('Bit stream'); subplot(3,1,2); plot(t,c);title('Carrier Wave'); subplot(3,1,3); plot(t,p);title('PSK Modulated Signal'); 
