@@ -1,5 +1,5 @@
 function unrz(s1)
-
+s1=[1 0 1 0 1 0 1]
 n=length(s1);
 
 UNRZ=0;
@@ -30,11 +30,8 @@ x1=[x1(2:length(x1)) 0];
 i=1;
 
 
-figure;
-subplot(2,1,1);
-plot(t,x1);title('UNRZ');
 
-subplot(2,1,2);
+
 
 %PSD of UNRZ
 f=0:0.001:2000;
@@ -44,6 +41,10 @@ s1=(((A^2)*Tb)/4).*((sinc(f.*Tb)).^2).*(1+(((1/Tb).*dirac(f))));
 s1=s1/((A^2)*Tb);
 f1=f*Tb;
 figure;
+subplot(2,1,1);
+plot(t,x1);title('UNRZ');
+
+subplot(2,1,2);
 plot(f1,s1);
 title('PSD of UNRZ');
 bpsk(x1,t);

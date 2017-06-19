@@ -1,4 +1,4 @@
-function manchester(b1)
+function DS=manchester(b1)
 
 n=length(b1); 
 Tb=1;
@@ -22,10 +22,6 @@ x1=[x1 MNRZ(i)*ones(1,50) MNRZ(i+1)*ones(1,50)];
 i=i+2; 
 end 
 x1=[x1(2:length(x1)) 0]; 
-figure; 
-subplot(3,1,1); 
-plot(t,x1);
-title('MNRZ'); 
 %PSD of Manchester Coding 
 f=0:0.001:2000;
 A=5;
@@ -34,7 +30,10 @@ f1=f*Tb;
 s1=((A^2)*Tb).*((sinc((f.*Tb)/2)).^2).*((sinc((pi.*f.*Tb)/2)).^2);
 s1=s1/((A^2)*Tb); 
 figure; 
-plot(f1,s1);
+subplot(2,1,1); 
+plot(t,x1);
+title('MNRZ'); 
+subplot(2,1,2); plot(f1,s1);
 title('PSD of MNRZ');
 bpsk(x1,t);
 

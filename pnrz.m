@@ -31,12 +31,9 @@ x2=[x2(2:length(x2)) 0];
 
 
 
-figure;
+ 
 
-subplot(2,1,1);
-plot(t,x2);title('PNRZ');
 
-subplot(2,1,2);
 
 
 %PSD of PNRZ signal
@@ -45,9 +42,14 @@ A=5;
 Tb=0.001;
 s2=((A^2)*Tb).*((sinc(f.*Tb)).^2);
 s2=s2/((A^2)*Tb);
-figure;
-f1=f*Tb;
 
+f1=f*Tb;
+figure;
+subplot(2,1,1);
+plot(t,x2);title('PNRZ');
+
+
+subplot(2,1,2);
 plot(f1,s2);title('PSD of PNRZ');
 bpsk(x2,t);
 end
